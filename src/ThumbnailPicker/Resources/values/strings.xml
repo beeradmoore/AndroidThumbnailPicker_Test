@@ -2,6 +2,9 @@
     <string name="app_name">Thumbnail Picker</string>
     <string name="near_button_text">Pick Near</string>
     <string name="far_button_text">Pick Far</string>
+
+    <string name="base_test_result_text">Base test result:</string>
+    <string name="actual_test_result_text">Actual test result:</string>
 </resources>
 
 

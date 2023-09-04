@@ -10,9 +10,20 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AndroidResource Update="Resources\layout\activity_test.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
+    <None Remove="Resources\raw\" />
+    <None Remove="Xam.Plugin.LinkedIn.LiTr" />
+    <None Remove="Xam.Plugin.LinkedIn.LiTr.Filters" />
+    <None Remove="Xamarin.Essentials" />
+    <None Remove="TestCases\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\raw\" />
+    <Folder Include="TestCases\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xam.Plugin.LinkedIn.LiTr" Version="1.5.5" />
+    <PackageReference Include="Xam.Plugin.LinkedIn.LiTr.Filters" Version="1.5.5" />
+    <PackageReference Include="AndHUD" Version="2.0.0" />
+    <PackageReference Include="Xamarin.FFmpegKit.Full.Android" Version="5.1.0" />
   </ItemGroup>
 </Project>

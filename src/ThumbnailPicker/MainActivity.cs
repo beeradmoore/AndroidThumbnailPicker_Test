@@ -1,4 +1,8 @@
-﻿using Android.Views;
+﻿using System.Runtime.Serialization.Formatters.Binary;
+using Android.Content;
+using Android.Views;
+using AndroidHUD;
+using static Java.Util.Jar.Attributes;
 
 namespace ThumbnailPicker;
 
@@ -6,7 +10,14 @@ namespace ThumbnailPicker;
 [Activity(Label = "@string/app_name", MainLauncher = true)]
 public class MainActivity : Activity, AdapterView.IOnItemClickListener
 {
-    string[] items = new string[] { "one", "two", "three" };
+    Type[] items = new Type[] {
+        typeof(TestCases.MediaMetadataRetrieverClosestTest),
+        typeof(TestCases.MediaMetadataRetrieverClosestSyncTest),
+        typeof(TestCases.LiTrFrameExtractorTest),
+        typeof(TestCases.VideoSurfaceViewTest),
+        typeof(TestCases.VideoTextureViewTest),
+        typeof(TestCases.FFmpegKitTest)
+    };
 
     protected override void OnCreate(Bundle? savedInstanceState)
     {
@@ -20,14 +31,16 @@ public class MainActivity : Activity, AdapterView.IOnItemClickListener
         {
             mainListView.OnItemClickListener = this;
 
-            var arrayAdapter = new ArrayAdapter<string>(this, Resource.Layout.main_listview_item, Resource.Id.listview_item_textview, items);
-            mainListView.Adapter = arrayAdapter;
+            //var arrayAdapter = new ArrayAdapter<Type>(this, Resource.Layout.main_listview_item, Resource.Id.listview_item_textview, items);
+            mainListView.Adapter = new MainListViewAdapter(this, items);
         }
+
     }
 
     public void OnItemClick(AdapterView? parent, View? view, int position, long id)
     {
-        StartActivity(typeof(TestActivity));
+        var intent = new Intent(this, typeof(TestActivity));
+        intent.PutExtra("test_type", items[position].ToString());
+        StartActivity(intent);
     }
-
 }

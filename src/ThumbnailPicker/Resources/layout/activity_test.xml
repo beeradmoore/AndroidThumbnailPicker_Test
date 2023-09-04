@@ -1,52 +1,100 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="2"
- 
-    android:rowCount="5"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
     >
-    <ThumbnailPicker.SixteenByNineImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/standardImageView"
-        android:layout_columnSpan="2"
-        android:layout_row="0"
-        android:background="#FF0000"
+
+	<ThumbnailPicker.SixteenByNineImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/standardImageView"
+		android:background="#FF0000"
         />
-    <ThumbnailPicker.SixteenByNineImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/testImageView"
-        android:layout_columnSpan="2"
-        android:layout_row="1"
-        android:background="#00FF00"
+
+	<ThumbnailPicker.SixteenByNineImageView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/testImageView"
+		android:background="#00FF00"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pickNearButton"
-        android:text="@string/near_button_text"
-        android:layout_column="0"
-        android:layout_row="3" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pickFarButton"
-        android:text="@string/far_button_text"
-        android:layout_column="1"
-        android:layout_row="3" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/resultTextView"
-        android:layout_columnSpan="2"
-        android:background="#FF0000"
-        android:layout_row="4"
-        android:singleLine="false"
-        android:padding="8dp"
-        />
-    
-</GridLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/pickNearButton"
+			android:text="@string/near_button_text"
+			android:layout_weight="1"
+            />
+
+		<Button
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/pickFarButton"
+			android:text="@string/far_button_text"
+			android:layout_weight="1"
+            />
+	</LinearLayout>
+
+	<TableLayout
+		android:id="@+id/resultTableLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<TableRow
+			android:id="@+id/baseTestRow"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="8dp"
+            >
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="@string/base_test_result_text"
+				android:textStyle="bold"
+				android:layout_weight="1"
+				android:textAlignment="textEnd"
+            />
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/baseTextResult"
+				android:layout_weight="1"
+				android:layout_marginLeft="4dp"
+            />
+		</TableRow>
+
+		<TableRow
+			android:id="@+id/actualTestRow"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="8dp"
+            >
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="@string/actual_test_result_text"
+				android:textStyle="bold"
+				android:layout_weight="1"
+				android:textAlignment="textEnd"
+            />
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/actualTextResult"
+				android:layout_weight="1"
+				android:layout_marginLeft="4dp"
+            />
+		</TableRow>
+	</TableLayout>
+
+
+</LinearLayout>
